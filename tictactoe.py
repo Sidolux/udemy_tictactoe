@@ -26,8 +26,8 @@ display_board(board)
 print('')
 while True:
     while board[pos] in ('X', 'O', '#'):
-        pos = player_position(players[who] + ' gdzie postawić ' + xo[who] + ' (1-9)')
-        if board[pos] in ('X', 'O'):
+        pos = player_position(players[who] + ', gdzie postawić ' + xo[who] + ' (1-9)')
+        if board[pos] != ' ':
             print('Pole zajęte, spróbuj ponownie.')
     place_marker(board, xo[who], pos)
     system('cls')
