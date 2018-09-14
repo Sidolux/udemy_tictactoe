@@ -2,17 +2,16 @@ from os import system
 from sys import exit
 from functions import *
 
-
 xo = ['O', 'X']
-board = [' ','1','2','3','4','5','6','7','8','9']
-print(board)
-who=0
+board = ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+who = 0
+pos = 0
 system('cls')
 print('Gra Tic Tac Toe')
 player1_name = input('Podaj imię gracza 1: ')
 player2_name = input('Podaj imię gracza 2: ')
 
-xo_select = player_input(player1_name + ' wybiera czym gra (O/X)')
+xo_select = player_marker(player1_name + ' wybiera czym gra (O/X)')
 
 if xo_select.lower() == 'x':
     players = [player2_name, player1_name]
@@ -23,10 +22,16 @@ print(f'Zaczyna O, dlatego pierwszy gra gracz {players[0]}')
 input('Naciśnij enter')
 system('cls')
 print('')
-print(f'{board[7]}|{board[8]}|{board[9]}')
-print(f'-----')
-print(f'{board[4]}|{board[5]}|{board[6]}')
-print(f'-----')
-print(f'{board[1]}|{board[2]}|{board[3]}')
+display_board(board)
 print('')
-print(f'{players[who]}, gdzie postawić {xo[who]} (1-9)')
+while True:
+    while board[pos] in ('X', 'O', '#'):
+        pos = player_position(players[who] + ' gdzie postawić ' + xo[who] + ' (1-9)')
+        if board[pos] in ('X', 'O'):
+            print('Pole zajęte, spróbuj ponownie.')
+    place_marker(board, xo[who], pos)
+    system('cls')
+    print('')
+    display_board(board)
+    print('')
+    who = (who + 1) % 2
