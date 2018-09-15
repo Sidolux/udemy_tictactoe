@@ -10,7 +10,17 @@ while restart:
     pos = 0
 
     system('cls')
-    print('Gra Tic Tac Toe')
+    print('''
+-------------------------
+| Gra w kółko i krzyżyk |
+-------------------------
+
+Kieruj się komunikatami.
+Pola na planszy są ponumerowane jak na klawiaturze numerycznej komputera.
+
+Powodzenia.
+
+    ''')
     player1_name = input('Podaj imię gracza 1: ')
     player2_name = input('Podaj imię gracza 2: ')
 
@@ -20,9 +30,8 @@ while restart:
         players = [player2_name, player1_name]
     else:
         players = [player1_name, player2_name]
-
-    print(f'Zaczyna O, dlatego pierwszy gra gracz {players[0]}')
-    input('Naciśnij enter')
+    print(f'\nZaczyna O, dlatego pierwszy gra gracz {players[0]}')
+    input('\nNaciśnij enter')
     system('cls')
     print('')
     display_board(board)
@@ -46,7 +55,7 @@ while restart:
                 print('REMIS')
             player_continue = ''
             while player_continue not in ('t', 'n'):
-                player_continue = input('Gramy jeszcze raz T/N? ').lower()
+                player_continue = input('\nGramy jeszcze raz T/N? ').lower()
             if player_continue == 'n':
                 restart = False
             break
