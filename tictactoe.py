@@ -51,4 +51,4 @@ while restart:
                 restart = False
             break
         who = (who + 1) % 2
-print('Dziękuję za grę.')
+print('\nDziękuję za grę.')
