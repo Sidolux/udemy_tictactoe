@@ -31,15 +31,19 @@ while restart:
         while board[pos] in ('X', 'O', '#'):
             pos = player_position(players[who] + ', gdzie postawić ' + xo[who] + ' (1-9)')
             if board[pos] != ' ':
-                print('Pole zajęte, spróbuj ponownie.')
+                print('Pole zajęte, wybierz inne pole.')
         place_marker(board, xo[who], pos)
         system('cls')
         print('')
         display_board(board)
         print('')
 #        print(check_win(board, xo[who]))
-        if check_win(board, xo[who]):
-            print(f'Brawo {players[who]}!!! Zwycięstwo.')
+        won = check_win(board, xo[who])
+        if won or ' ' not in set(board):
+            if won:
+                print(f'BRAWO {players[who]}!!! ZWYCIĘSTWO.')
+            else:
+                print('REMIS')
             player_continue = ''
             while player_continue not in ('t', 'n'):
                 player_continue = input('Gramy jeszcze raz T/N? ').lower()
