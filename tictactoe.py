@@ -40,7 +40,7 @@ Powodzenia.
         while board[pos] in ('X', 'O', '#'):
             pos = player_position(players[who] + ', gdzie postawić ' + xo[who] + ' (1-9)')
             if board[pos] != ' ':
-                print('Pole zajęte, spróbuj ponownie.')
+                print('Pole zajęte, wybierz inne pole.')
         place_marker(board, xo[who], pos)
         system('cls')
         print('')
