@@ -60,4 +60,4 @@ Powodzenia.
                 restart = False
             break
         who = (who + 1) % 2
-print('\nDziękuję za grę.')
+print('\nDziękuję za grę!')
